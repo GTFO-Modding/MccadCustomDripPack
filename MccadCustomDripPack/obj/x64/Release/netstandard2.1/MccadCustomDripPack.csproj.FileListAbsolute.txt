@@ -1,0 +1,10 @@
+C:\Users\Admin-PC\source\repos\MccadCustomDripPack\MccadCustomDripPack\bin\Release\netstandard2.1\MccadCustomDripPack.deps.json
+C:\Users\Admin-PC\source\repos\MccadCustomDripPack\MccadCustomDripPack\bin\Release\netstandard2.1\MccadCustomDripPack.dll
+C:\Users\Admin-PC\source\repos\MccadCustomDripPack\MccadCustomDripPack\bin\Release\netstandard2.1\MccadCustomDripPack.pdb
+C:\Users\Admin-PC\source\repos\MccadCustomDripPack\MccadCustomDripPack\obj\x64\Release\netstandard2.1\MccadCustomDripPack.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin-PC\source\repos\MccadCustomDripPack\MccadCustomDripPack\obj\x64\Release\netstandard2.1\MccadCustomDripPack.AssemblyInfoInputs.cache
+C:\Users\Admin-PC\source\repos\MccadCustomDripPack\MccadCustomDripPack\obj\x64\Release\netstandard2.1\MccadCustomDripPack.AssemblyInfo.cs
+C:\Users\Admin-PC\source\repos\MccadCustomDripPack\MccadCustomDripPack\obj\x64\Release\netstandard2.1\MccadCustomDripPack.csproj.CoreCompileInputs.cache
+C:\Users\Admin-PC\source\repos\MccadCustomDripPack\MccadCustomDripPack\obj\x64\Release\netstandard2.1\MccadCustomDripPack.dll
+C:\Users\Admin-PC\source\repos\MccadCustomDripPack\MccadCustomDripPack\obj\x64\Release\netstandard2.1\MccadCustomDripPack.pdb
+C:\Users\Admin-PC\source\repos\MccadCustomDripPack\MccadCustomDripPack\obj\x64\Release\netstandard2.1\MccadCustomDripPack.csproj.AssemblyReference.cache

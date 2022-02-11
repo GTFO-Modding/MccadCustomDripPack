@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MccadCustomDripPack", "MccadCustomDripPack\MccadCustomDripPack.csproj", "{76467A64-7BD1-4C2B-8898-28A70A528963}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76467A64-7BD1-4C2B-8898-28A70A528963}.Debug|x64.ActiveCfg = Debug|x64
+		{76467A64-7BD1-4C2B-8898-28A70A528963}.Debug|x64.Build.0 = Debug|x64
+		{76467A64-7BD1-4C2B-8898-28A70A528963}.Release|x64.ActiveCfg = Release|x64
+		{76467A64-7BD1-4C2B-8898-28A70A528963}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5A89D342-BCCE-45BB-9A96-056AE6B53201}
+	EndGlobalSection
+EndGlobal
