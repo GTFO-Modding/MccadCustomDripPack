@@ -18,9 +18,6 @@ namespace MccadCustomDripPack
             trollAsset.transform.localEulerAngles = Vector3.zero;
             troll.name = "Headgear_Troll";
 
-            var comp = troll.AddComponent<CustomVanityItem>();
-            comp.ObjPathHideOnLoad.Add("Root/Hip/Spine1/Spine2/Spine3/Neck/Head/Troll(Clone)");
-
             EntryPoint.GenerateVanityItemDBEntry("Troll", "CustomHeadgear/Troll.prefab", ClothesType.Helmet, "Assets/Bundle/Drip/Content/Icon_Troll.png");
         }
     }

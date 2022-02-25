@@ -15,7 +15,6 @@ namespace MccadCustomDripPack
             hacketthoodie.transform.FindChild("Headgear_Hackett/g_hackett_mask_1").gameObject.active = false;
 
             hacketthoodie.name = "Headgear_HackettHood";
-            hacketthoodie.AddComponent<CustomVanityItem>();
 
             EntryPoint.GenerateVanityItemDBEntry("Hackett's Hood", "CustomHeadgear/HackettHood.prefab", ClothesType.Helmet, "Assets/Bundle/Drip/Content/hackettHoodIcon.png");
         }

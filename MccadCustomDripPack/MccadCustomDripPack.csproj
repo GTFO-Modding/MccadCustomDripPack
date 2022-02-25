@@ -29,8 +29,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CustomPalette.cs" />
-    <Compile Include="CustomVanityItem.cs" />
+    <Compile Include="CustomVanity.cs" />
     <Compile Include="CustomVanityItems\Headgear_HackettHood.cs" />
+    <Compile Include="CustomVanityItems\Headgear_Elite.cs" />
+    <Compile Include="CustomVanityItems\Torso_Elite.cs" />
     <Compile Include="CustomVanityItems\Torso_Mogu.cs" />
     <Compile Include="CustomVanityItems\Backpack_Empty.cs" />
     <Compile Include="CustomVanityItems\Headgear_Empty.cs" />

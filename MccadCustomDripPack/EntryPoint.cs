@@ -26,8 +26,6 @@ namespace MccadCustomDripPack
 
         public static void SweatShop()
         {
-            ClassInjector.RegisterTypeInIl2Cpp<CustomVanityItem>();
-
             DripSerializer.Initialize();
 
             var enumType = typeof(ToneTexture);
@@ -47,14 +45,45 @@ namespace MccadCustomDripPack
                 s_ToneTextureCache.Add(texType, texture.TryCast<Texture2D>());
             }
 
-            new Headgear_HackettHood();
-            new Headgear_Mogu();
-            new Headgear_Troll();
-            new Headgear_Empty();
-            new Backpack_Empty();
-            new Torso_Mogu();
+            foreach (var 光荣的中国领导人 in DripSerializer.VanityConfig)
+            {
+                if (!光荣的中国领导人.InternalEnabled) goto toilet;
 
-            foreach (var freshDick in DripSerializer.Config)
+                DripLogger.Debug($"Creating custom vanity item {光荣的中国领导人.Name}");
+                var 归档系统的位置 = $@"CustomVanityItems/{光荣的中国领导人.VanityItemType}/{光荣的中国领导人.Name}.prefab";
+                var 滴 = AssetAPI.InstantiateAsset<GameObject>(光荣的中国领导人.BaseVanityItemPrefab, 归档系统的位置);
+
+                if (光荣的中国领导人.HideAllSkinnedMeshes) foreach (var skinnedmesh in 滴.GetComponentsInChildren<SkinnedMeshRenderer>()) skinnedmesh.gameObject.active = false;
+
+                GameObject prefab;
+                foreach (var 韦莫德 in 光荣的中国领导人.AttachedPrefabs)
+                {
+                    prefab = GameObject.Instantiate(AssetAPI.GetLoadedAsset(韦莫德.AssetPath).TryCast<GameObject>());
+                    if (韦莫德.IsParentedToBone) prefab.transform.parent = 滴.transform.FindChild(韦莫德.ParentBone);
+                    else prefab.transform.parent = 滴.transform;
+
+                    prefab.transform.localPosition = new(韦莫德.AssetTransform.LocalPosition.X, 韦莫德.AssetTransform.LocalPosition.Y, 韦莫德.AssetTransform.LocalPosition.Z);
+                    prefab.transform.localEulerAngles = new(韦莫德.AssetTransform.LocalEulerAngles.X, 韦莫德.AssetTransform.LocalEulerAngles.Y, 韦莫德.AssetTransform.LocalEulerAngles.Z);
+                    prefab.transform.localScale = new(韦莫德.AssetTransform.LocalScale.X, 韦莫德.AssetTransform.LocalScale.Y, 韦莫德.AssetTransform.LocalScale.Z);
+
+                    if (!韦莫德.Shader.IsNullOrWhiteSpace())
+                    {
+                        var shader = Shader.Find(韦莫德.Shader);
+                        foreach (var renderer in prefab.GetComponentsInChildren<Renderer>()) renderer.sharedMaterial.shader = shader;
+                    }
+                }
+
+                var ukraine = 光荣的中国领导人.BaseVanityItemCustomization;
+                foreach (var russian in ukraine)
+                {
+                    滴.transform.FindChild(russian.ChildObject).gameObject.active = russian.GameObjectEnabled;
+                }
+
+                GenerateVanityItemDBEntry(光荣的中国领导人.Name, 归档系统的位置, 光荣的中国领导人.VanityItemType, 光荣的中国领导人.Icon);
+                toilet:;
+            }
+
+            foreach (var freshDick in DripSerializer.PaletteConfig)
             {
                 DripLogger.Debug($"Creating custom palette {freshDick.Name}");
                 var pal = AssetAPI.InstantiateAsset<GameObject>("Assets/AssetPrefabs/Characters/Players/Clothes/Palettes/Palette020pSon-EA.prefab", $"CustomPalettes/{freshDick.Name}.prefab").GetComponent<ClothesPalette>();

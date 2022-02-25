@@ -5,6 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using GameData;
+using RigTools;
+using UnityEngine;
+using AssetShards;
 
 namespace MccadCustomDripPack
 {
@@ -16,28 +19,23 @@ namespace MccadCustomDripPack
         public static void OnLocalPlayerStartExpedition()
         {
             DroppedIntoLevel?.Invoke();
-            /*
-            var vanityItemHelmetID = PlayerBackpackManager.GetBackpack(SNet.LocalPlayer).m_vanityItems[0];
-            var vanityItemHelmetPath = VanityItemsTemplateDataBlock.GetBlock(vanityItemHelmetID).prefab;
-
-            if (vanityItemHelmetPath != "CustomHeadgear/Mogus.prefab" &&
-                vanityItemHelmetPath != "CustomHeadgear/Troll.prefab") return;
-            DripLogger.Debug("Amogus helmet equipped, hiding FPS elements");
-
-            var objPath = "";
-
-            switch (vanityItemHelmetPath)
-            {
-                case "CustomHeadgear/Mogus.prefab": objPath = "Root/Hip/Spine1/Spine2/Spine3/Mask_Mogu(Clone)"; break;
-                case "CustomHeadgear/Troll.prefab": objPath = "Root/Hip/Spine1/Spine2/Spine3/Neck/Head/Troll(Clone)"; break;
-            }
-
-            var localPlayer = PlayerManager.Current.m_localPlayerAgentInLevel;
-            localPlayer.FPItemHolder.transform.FindChild("FPSBody_genericRigForClothes(Clone)/PlayerCharacter_rig/" + objPath).gameObject.active = false;
-            localPlayer.FPSCamera.FlatTransform.FindChild("PlayerCharacter_rig(Clone)/PlayerCharacter_rig/" + objPath).gameObject.active = false;
-            */
+            localPlayer = PlayerManager.Current.m_localPlayerAgentInLevel;
+            localPlayer.AnimatorArms.transform.FindChild("Root/Hip/Spine1/Spine2/Spine3/Neck").gameObject.active = false;
+            localPlayer.AnimatorBody.transform.FindChild("PlayerCharacter_rig/Root/Hip/Spine1/Spine2/Spine3/Neck").gameObject.active = false;
         }
 
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(GS_AfterLevel), nameof(GS_AfterLevel.Enter))]
+        public static void GS_AfterLevel_Enter()
+        {
+            AfterLevel?.Invoke();
+            if (localPlayer == null) return;
+            localPlayer.AnimatorArms.transform.FindChild("Root/Hip/Spine1/Spine2/Spine3/Neck").gameObject.active = true;
+            localPlayer.AnimatorBody.transform.FindChild("PlayerCharacter_rig/Root/Hip/Spine1/Spine2/Spine3/Neck").gameObject.active = true;
+        }
+
+        public static PlayerAgent localPlayer;
         public static event Action DroppedIntoLevel;
+        public static event Action AfterLevel;
     }
 }

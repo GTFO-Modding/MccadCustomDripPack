@@ -13,7 +13,6 @@ namespace MccadCustomDripPack
             var moguTorso = AssetAPI.InstantiateAsset<GameObject>("ASSETS/ASSETPREFABS/CHARACTERS/PLAYERS/CLOTHES/TORSOS/TORSO003WOODS/TORSO003WOODS.PREFAB", "CustomTorso/Mogus.prefab");
             moguTorso.transform.FindChild("Arms003Woods").gameObject.active = false;
             moguTorso.name = "Torso_Mogu";
-            moguTorso.AddComponent<CustomVanityItem>();
 
             EntryPoint.GenerateVanityItemDBEntry("Amogus", "CustomTorso/Mogus.prefab", ClothesType.Torso, "Assets/Bundle/Drip/Content/Icon_Mogu.png");
         }
