@@ -230,16 +230,36 @@ namespace MccadCustomDripPack
             {
                 Name = "Kovac Heavy Elite", VanityItemType = ClothesType.Helmet, Icon = "Assets/Bundle/Drip/Content/IconElite.png", InternalEnabled = true,
                 BaseVanityItemPrefab = "ASSETS/ASSETPREFABS/CHARACTERS/PLAYERS/CLOTHES/HEADGEARS/HEADGEAR001/HEADGEAR001.PREFAB",
-                AttachedPrefabs = new() { new()
-                {
-                    AssetPath = "Assets/Bundle/Drip/Content/CustomMask.prefab", Shader = "Cell/Player/CustomGearShader",
-                    IsParentedToBone = true, ParentBone = "Root/Hip/Spine1/Spine2/Spine3/Neck/Head", GameObjectEnabled = true,
-                    AssetTransform = new()
+                AttachedPrefabs = new() { 
+                    new() 
                     {
-                        LocalPosition = new(), LocalEulerAngles = new(), LocalScale = new(1, 1, 1)
+                        AssetPath = "Assets/Bundle/Drip/Content/CustomMask.prefab",
+                        Shader = "Cell/Player/CustomGearShader",
+                        IsParentedToBone = true,
+                        ParentBone = "Root/Hip/Spine1/Spine2/Spine3/Neck/Head",
+                        GameObjectEnabled = true,
+                        AssetTransform = new()
+                        {
+                            LocalPosition = new(),
+                            LocalEulerAngles = new(),
+                            LocalScale = new(1, 1, 1)
+                        }
+                    },
+                    new() {
+                        AssetPath = "Assets/Bundle/Drip/Content/CustomMask_Visor.prefab",
+                        Shader = "GTFO/Glass",
+                        IsParentedToBone = true,
+                        ParentBone = "Root/Hip/Spine1/Spine2/Spine3/Neck/Head",
+                        GameObjectEnabled = true,
+                        AssetTransform = new()
+                        {
+                            LocalPosition = new(0, -1.739f, -0.0592f),
+                            LocalEulerAngles = new(270, 0, 0),
+                            LocalScale = new(1, 1, 1)
+                        }
                     }
-                } },
-                BaseVanityItemCustomization = new() 
+                },
+                VanityItemCustomization = new() 
                 {
                     new() { ChildObject = "Headgear001/Headgear_7:Headgear_7_1", GameObjectEnabled = false},
                     new() { ChildObject = "Headgear001/Headgear_7:Headgear_Glass_7_1", GameObjectEnabled = false}
@@ -295,6 +315,20 @@ namespace MccadCustomDripPack
                             LocalEulerAngles = new(337.9162f, 337.0408f, 7.4414f),
                             LocalScale = new(1, 1.2f, 1.2f)
                         }
+                    },
+                    new()
+                    {
+                        AssetPath = "Assets/Bundle/Drip/Content/Mask_Mogu_Visor.prefab",
+                        Shader = "",
+                        IsParentedToBone = true,
+                        ParentBone = "Root/Hip/Spine1/Spine2/Spine3/Neck",
+                        GameObjectEnabled = true,
+                        AssetTransform = new()
+                        {
+                            LocalPosition = new(-0.025f, 0.16f, 0.05f),
+                            LocalEulerAngles = new(345, 0, 0),
+                            LocalScale = new(0.25f, 0.05f, 0.25f)
+                        }
                     }
                 },
                 HideAllSkinnedMeshes = true
@@ -307,7 +341,7 @@ namespace MccadCustomDripPack
                 Icon = "Assets/Bundle/Drip/Content/hackettHoodIcon.png",
                 InternalEnabled = true,
                 BaseVanityItemPrefab = "Assets/AssetPrefabs/Characters/Players/Clothes/Headgears/Headgear002Hackett/Headgear002Hackett.prefab",
-                BaseVanityItemCustomization = new()
+                VanityItemCustomization = new()
                 {
                     new() { ChildObject = "Headgear_Hackett/g_hackett_mask", GameObjectEnabled = false },
                     new() { ChildObject = "Headgear_Hackett/g_hackett_mask_1", GameObjectEnabled = false }
@@ -321,7 +355,7 @@ namespace MccadCustomDripPack
                 Icon = "Assets/Bundle/Drip/Content/Icon_Mogu.png",
                 InternalEnabled = true,
                 BaseVanityItemPrefab = "ASSETS/ASSETPREFABS/CHARACTERS/PLAYERS/CLOTHES/TORSOS/TORSO003WOODS/TORSO003WOODS.PREFAB",
-                BaseVanityItemCustomization = new()
+                VanityItemCustomization = new()
                 {
                     new() { ChildObject = "Arms003Woods", GameObjectEnabled = false }
                 },

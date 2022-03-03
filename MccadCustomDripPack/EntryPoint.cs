@@ -6,6 +6,7 @@ using HarmonyLib;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
+using UnlockAllVanity;
 using static ClothesPalette;
 using UnhollowerRuntimeLib;
 
@@ -21,11 +22,14 @@ namespace MccadCustomDripPack
             m_Harmony.PatchAll();
             DripLogger.Verbose($"zamn");
 
-            AssetAPI.OnStartupAssetsLoaded += SweatShop;
+            Patch.EnteredLobby += SweatShop;
         }
 
         public static void SweatShop()
         {
+            if (CustomVanityLoadedDone) return;
+
+            AssetAPI.RegisterAsset("AmongDrip/Empty.png", new Texture2D(0, 0));
             DripSerializer.Initialize();
 
             var enumType = typeof(ToneTexture);
@@ -73,10 +77,16 @@ namespace MccadCustomDripPack
                     }
                 }
 
-                var ukraine = 光荣的中国领导人.BaseVanityItemCustomization;
+                var ukraine = 光荣的中国领导人.VanityItemCustomization;
                 foreach (var russian in ukraine)
                 {
-                    滴.transform.FindChild(russian.ChildObject).gameObject.active = russian.GameObjectEnabled;
+                    var child = 滴.transform.FindChild(russian.ChildObject);
+                    child.gameObject.active = russian.GameObjectEnabled;
+                    if (!russian.Shader.IsNullOrWhiteSpace())
+                    {
+                        var renderer = child.GetComponent<Renderer>();
+                        if (renderer != null) renderer.sharedMaterial.shader = Shader.Find(russian.Shader);
+                    }
                 }
 
                 GenerateVanityItemDBEntry(光荣的中国领导人.Name, 归档系统的位置, 光荣的中国领导人.VanityItemType, 光荣的中国领导人.Icon);
@@ -98,6 +108,10 @@ namespace MccadCustomDripPack
 
                 GenerateVanityItemDBEntry(freshDick.Name, $"CustomPalettes/{freshDick.Name}.prefab", ClothesType.Palette);
             }
+
+            CustomVanityLoadedDone = true;
+            AmongDrip.gucci(PersistentInventoryManager.Current.m_vanityItemsInventory);
+            Patch.EnteredLobby -= SweatShop;
         }
 
         public static void GenerateVanityItemDBEntry(string name, string prefab, ClothesType type, string icon = "AmongDrip/Empty.png")
@@ -109,6 +123,17 @@ namespace MccadCustomDripPack
             db.DropWeight = 1.0f;
             db.icon = icon;
             db.internalEnabled = true;
+
+            var vanityItem = new VanityItem();
+            vanityItem.id = db.persistentID;
+            vanityItem.prefab = prefab;
+            vanityItem.type = type;
+            vanityItem.publicName = name;
+            vanityItem.flags = VanityItemFlags.Acknowledged;
+
+            if (!PersistentInventoryManager.Current.m_vanityItemsInventory.m_allItems.Contains(vanityItem))
+            PersistentInventoryManager.Current.m_vanityItemsInventory.m_allItems.Add(vanityItem);
+
             DripLogger.Debug($"Added {name} to the datablocks");
         }
 
@@ -138,6 +163,8 @@ namespace MccadCustomDripPack
         public static Dictionary<string, ToneTexture> s_TextureMap = new();
 
         public static Dictionary<ToneTexture, Texture2D> s_ToneTextureCache = new();
+
+        public static bool CustomVanityLoadedDone;
 
         public const string NAME = "AmongDrip", VERSION = "1.0.0", GUID = "com.mccad00.MccadCustomDripPack";
     }

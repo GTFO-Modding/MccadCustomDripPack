@@ -7,4 +7,3 @@ C:\Users\Admin-PC\source\repos\MccadCustomDripPack\MccadCustomDripPack\obj\x64\R
 C:\Users\Admin-PC\source\repos\MccadCustomDripPack\MccadCustomDripPack\obj\x64\Release\netstandard2.1\MccadCustomDripPack.csproj.CoreCompileInputs.cache
 C:\Users\Admin-PC\source\repos\MccadCustomDripPack\MccadCustomDripPack\obj\x64\Release\netstandard2.1\MccadCustomDripPack.dll
 C:\Users\Admin-PC\source\repos\MccadCustomDripPack\MccadCustomDripPack\obj\x64\Release\netstandard2.1\MccadCustomDripPack.pdb
-C:\Users\Admin-PC\source\repos\MccadCustomDripPack\MccadCustomDripPack\obj\x64\Release\netstandard2.1\MccadCustomDripPack.csproj.AssemblyReference.cache

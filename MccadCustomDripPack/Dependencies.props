@@ -39,6 +39,7 @@
     <Reference Include="$(PluginsFolder)/GTFO-API.dll" Private="false" />
     <Reference Include="$(PluginsFolder)/dakkhuza-MTFO/MTFO.dll" Private="false"/>
     <Reference Include="$(PluginsFolder)/MccadCustomEnemyPack.dll" Private="false" />
+    <Reference Include="C:/Users/Admin-PC/source/repos/UnlockAllVanity/UnlockAllVanity/bin/Release/netstandard2.1/UnlockAllVanity.dll" Private="false" />
   </ItemGroup>
 
 </Project>

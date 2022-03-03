@@ -12,8 +12,8 @@ namespace MccadCustomDripPack
         public string BaseVanityItemPrefab { get; set; } = "";
         public bool InternalEnabled { get; set; } = false;
         public bool HideAllSkinnedMeshes { get; set; } = false;
-        public List<BaseGOCustomization> BaseVanityItemCustomization { get; set; } = new();
         public List<CustomAsset> AttachedPrefabs { get; set; } = new();
+        public List<BaseGOCustomization> VanityItemCustomization { get; set; } = new();
     }
 
     class CustomAsset
@@ -29,6 +29,7 @@ namespace MccadCustomDripPack
     class BaseGOCustomization
     {
         public string ChildObject { get; set; } = "";
+        public string Shader { get; set; } = "";
         public bool GameObjectEnabled { get; set; } = false;
     }
 

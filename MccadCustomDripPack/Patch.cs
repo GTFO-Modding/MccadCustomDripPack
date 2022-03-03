@@ -25,6 +25,13 @@ namespace MccadCustomDripPack
         }
 
         [HarmonyPostfix]
+        [HarmonyPatch(typeof(GS_Lobby), nameof(GS_Lobby.Enter))]
+        public static void GS_Lobby_Enter()
+        {
+            EnteredLobby?.Invoke();
+        }
+
+        [HarmonyPostfix]
         [HarmonyPatch(typeof(GS_AfterLevel), nameof(GS_AfterLevel.Enter))]
         public static void GS_AfterLevel_Enter()
         {
@@ -35,6 +42,7 @@ namespace MccadCustomDripPack
         }
 
         public static PlayerAgent localPlayer;
+        public static event Action EnteredLobby;
         public static event Action DroppedIntoLevel;
         public static event Action AfterLevel;
     }
